@@ -3,8 +3,8 @@
 # 跑裸核用户请自行去掉下方控制面板模块的注释。
 # 机场订阅
 proxy-providers:
-  宝可梦:
-    url: "https://52pokemon.sdnlv0.cn/api/v1/client/subscribe?token=659821af626ff86bcd638fb2676bc77c"
+  sub-store:
+    url: "http://substore.sunyitao.cn/wuyu/download/collection/PC"
     type: http
     interval: 86400
     health-check:
@@ -16,7 +16,9 @@ proxy-providers:
 # 节点信息
 proxies:
   - {name: 直连, type: direct}
+  
   - name: "【自建】LA洛杉矶ss"
+    dialer-proxy: 🔁 中转节点
     type: ss
     server: "192.161.163.33"
     port: 80
@@ -25,6 +27,7 @@ proxies:
     udp: true
 
   - name: "【自建】LA洛杉矶vless"
+#   dialer-proxy: 🔁 中转节点
     type: vless
     server: "192.161.163.33"
     port: 443
@@ -40,20 +43,21 @@ proxies:
       short-id: "c73d15dbeaec4c23"
     skip-cert-verify: false
   
-  - name: "【自建】LA洛杉矶hy2"
-    type: hysteria2
-    server: la.wuyu666.online
-    port: 52021
-    password: "17c023d6-e168-4c2f-a6be-a290fa6f970c"
-    up: "100 Mbps"
-    down: "800 Mbps"
-    client-fingerprint: chrome
-    alpn:
-      - h3
-    skip-cert-verify: false
+#  - name: "【自建】LA洛杉矶hy2"
+#    dialer-proxy: 🔁 中转节点
+#    type: hysteria2
+#    server: la.wuyu666.online
+#    port: 52021
+#    password: "17c023d6-e168-4c2f-a6be-a290fa6f970c"
+#    up: "100 Mbps"
+#    down: "800 Mbps"
+#    client-fingerprint: chrome
+#    alpn:
+#      - h3
+#    skip-cert-verify: false
     
   - name: "【自建】土耳其ss"
-    dialer-proxy: 🇺🇸 美国自动
+    dialer-proxy: 🔁 中转节点
     type: ss
     server: "154.53.164.193"
     port: 22320
@@ -136,28 +140,31 @@ dns:
 # 如果相应分组没有筛选到对应的国家，请根据自己节点名字调整筛选关键字。
 # 没有再使用锚点，是考虑很多新手修改难度，这样新手修改某个分组更容易些。
 proxy-groups:
-  - {name: 🚀 默认代理, type: select, proxies: [♻️ 机场自动, 🐽 自建节点 ,🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇰🇷 韩国自动, 🇸🇬 新加坡自动, 🇬🇧 英国自动, 🇦🇺 澳大利亚自动, 🇹🇷 土耳其自动, 直连]}
-  - {name: 📹 YouTube, type: select, proxies: [♻️ 机场自动, 🐽 自建节点 ,🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇰🇷 韩国自动, 🇸🇬 新加坡自动, 🇬🇧 英国自动, 🇦🇺 澳大利亚自动, 🇹🇷 土耳其自动, 直连]}
-  - {name: 🍀 Google, type: select, proxies: [♻️ 机场自动, 🐽 自建节点 ,🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇰🇷 韩国自动, 🇸🇬 新加坡自动, 🇬🇧 英国自动, 🇦🇺 澳大利亚自动, 🇹🇷 土耳其自动, 直连]}
-  - {name: ✨ Microsoft, type: select, proxies: [🇹🇷 土耳其自动, ♻️ 机场自动, 直连]}
-  - {name: 🤖 AI, type: select, proxies: [♻️ 机场自动, 🐽 自建节点 ,🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇰🇷 韩国自动, 🇸🇬 新加坡自动, 🇬🇧 英国自动, 🇦🇺 澳大利亚自动, 🇹🇷 土耳其自动, 直连]}
-  - {name: 👨🏿‍💻 GitHub, type: select, proxies: [♻️ 机场自动, 🐽 自建节点 ,🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇰🇷 韩国自动, 🇸🇬 新加坡自动, 🇬🇧 英国自动, 🇦🇺 澳大利亚自动, 🇹🇷 土耳其自动, 直连]}
-  - {name: 📲 Telegram, type: select, proxies: [♻️ 机场自动, 🐽 自建节点 ,🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇰🇷 韩国自动, 🇸🇬 新加坡自动, 🇬🇧 英国自动, 🇦🇺 澳大利亚自动, 🇹🇷 土耳其自动, 直连]}
-  - {name: 🎥 NETFLIX, type: select, proxies: [♻️ 机场自动, 🐽 自建节点 ,🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇰🇷 韩国自动, 🇸🇬 新加坡自动, 🇬🇧 英国自动, 🇦🇺 澳大利亚自动, 🇹🇷 土耳其自动, 直连]}
-  - {name: ✈️ Speedtest, type: select, proxies: [♻️ 机场自动, 🐽 自建节点 ,🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇰🇷 韩国自动, 🇸🇬 新加坡自动, 🇬🇧 英国自动, 🇦🇺 澳大利亚自动, 🇹🇷 土耳其自动, 直连]}
-  - {name: 🎯 直连, type: select, proxies: [直连, 🚀 默认代理]}
-  - {name: 🐟 漏网之鱼, type: select, proxies: [♻️ 机场自动, 🐽 自建节点, 直连]}
-  
   - {name: 🐽 自建节点, type: select, include-all: true, filter: "(?=.*(自建))"}
-  - {name: ♻️ 机场自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^(?!直连$)(?!.*自建).*$"}
-  - {name: 🇭🇰 香港自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美|英|澳|土)).)*$"}
-  - {name: 🇺🇸 美国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)America|States|纽约|洛杉矶))^((?!(港|台|日|韩|新|英|澳|土)).)*$"}
-  - {name: 🇯🇵 日本自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan|东京|大阪))^((?!(港|台|韩|新|美|英|澳|土)).)*$"}
-  - {name: 🇰🇷 韩国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(韩|KR|(?i)Korea|首尔|서울))^((?!(港|台|日|新|美|英|澳|土)).)*$"}
-  - {name: 🇸🇬 新加坡自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(新|SG|(?i)Singapore|狮城|叻坡))^((?!(港|台|日|韩|美|英|澳|土)).)*$"}
-  - {name: 🇬🇧 英国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(英|UK|(?i)Britain|England|伦敦))^((?!(港|台|日|韩|新|美|澳|土)).)*$"}
-  - {name: 🇦🇺 澳大利亚自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(澳|AU|(?i)Australia|悉尼|墨尔本))^((?!(港|台|日|韩|新|美|英|土)).)*$"}
-  - {name: 🇹🇷 土耳其自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(土|TR|(?i)Turkey|伊斯坦布尔))^((?!(港|台|日|韩|新|美|英|澳)).)*$"}
+  - {name: 🚀 默认代理, type: select, proxies: [🐽 自建节点 ,♻️ 机场自动, 🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇸🇬 新加坡自动, 🇹🇷 土耳其自动, 🌍 其他地区, 直连]}
+  - {name: 📹 YouTube, type: select, proxies: [🐽 自建节点 ,♻️ 机场自动, 🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇸🇬 新加坡自动, 🇹🇷 土耳其自动, 🌍 其他地区, 直连]}
+  - {name: 🍀 Google, type: select, proxies: [🐽 自建节点 ,♻️ 机场自动, 🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇸🇬 新加坡自动, 🇹🇷 土耳其自动, 🌍 其他地区, 直连]}
+  - {name: ✨ Microsoft, type: select, proxies: [🇹🇷 土耳其自动, ♻️ 机场自动, 直连]}
+  - {name: 👨🏿‍💻 GitHub, type: select, proxies: [🐽 自建节点 ,♻️ 机场自动, 🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇸🇬 新加坡自动, 🇹🇷 土耳其自动, 🌍 其他地区, 直连]}
+  - {name: 📲 Telegram, type: select, proxies: [🐽 自建节点 ,♻️ 机场自动, 🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇸🇬 新加坡自动, 🇹🇷 土耳其自动, 🌍 其他地区, 直连]}
+  - {name: 🤖 AI, type: select, proxies: [🐽 自建节点 ,♻️ 机场自动, 🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇸🇬 新加坡自动, 🇹🇷 土耳其自动, 🌍 其他地区, 直连]}
+  - {name: ✈️ Speedtest, type: select, proxies: [🐽 自建节点 ,♻️ 机场自动, 🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇸🇬 新加坡自动, 🇹🇷 土耳其自动, 🌍 其他地区, 直连]}
+  - {name: 🐟 漏网之鱼, type: select, proxies: [🐽 自建节点 ,♻️ 机场自动, 🇭🇰 香港自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🇸🇬 新加坡自动, 🇹🇷 土耳其自动, 🌍 其他地区, 直连]}
+  - {name: 🔁 中转节点, type: select, proxies: [🇭🇰 香港自动, 🇸🇬 新加坡自动, 🇺🇸 美国自动, 🇯🇵 日本自动, 🌍 其他地区,♻️ 机场自动 , 直连]}
+  - {name: 🎯 直连, type: select, proxies: [直连, 🚀 默认代理]}
+  
+  
+  - {name: ♻️ 机场自动, type: url-test, include-all: true, tolerance: 20, interval: 200, filter: "^(?!直连$)(?!.*自建).*$"}
+  - {name: 🇭🇰 香港自动, type: url-test, include-all: true, tolerance: 20, interval: 200, filter: "^(?=.*香港)(?!.*自建).*$"}
+  - {name: 🇺🇸 美国自动, type: url-test, include-all: true, tolerance: 20, interval: 200, filter: "^(?=.*美国)(?!.*自建).*$"}
+  - {name: 🇯🇵 日本自动, type: url-test, include-all: true, tolerance: 20, interval: 200, filter: "^(?=.*日本)(?!.*自建).*$"}
+  - {name: 🇸🇬 新加坡自动, type: url-test, include-all: true, tolerance: 20, interval: 200, filter: "^(?=.*新加坡)(?!.*自建).*$"}
+  - {name: 🇹🇷 土耳其自动, type: url-test, include-all: true, tolerance: 20, interval: 200, filter: "^(?=.*土耳其).*$"}
+  - {name: 🌍 其他地区, type: url-test, include-all: true, tolerance: 20, interval: 200, filter: "^((?!.*(香港|美国|日本|新加坡|土耳其|自建)).)*$"}
+  #- {name: 🇬🇧 英国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(英|UK|(?i)Britain|England|伦敦))^((?!(港|台|日|韩|新|美|澳|土)).)*$"}
+  #- {name: 🇦🇺 澳大利亚自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(澳|AU|(?i)Australia|悉尼|墨尔本))^((?!(港|台|日|韩|新|美|英|土)).)*$"}
+  #- {name: 🇰🇷 韩国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(韩|KR|(?i)Korea|首尔|서울))^((?!(港|台|日|新|美|英|澳|土)).)*$"}
+  
 
 
 rules:
@@ -172,12 +179,10 @@ rules:
   - RULE-SET,microsoft_domain,✨ Microsoft
   - RULE-SET,speedtest_domain,✈️ Speedtest
   - RULE-SET,telegram_domain,📲 Telegram
-  - RULE-SET,netflix_domain,🎥 NETFLIX
   - RULE-SET,gfw_domain,🚀 默认代理
   - RULE-SET,geolocation-!cn,🚀 默认代理
   - RULE-SET,cn_domain,🎯 直连
   - RULE-SET,google_ip,🍀 Google,no-resolve
-  - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve
   - RULE-SET,telegram_ip,📲 Telegram,no-resolve
   - RULE-SET,cn_ip,🎯 直连
   - MATCH,🐟 漏网之鱼
@@ -195,7 +200,6 @@ rule-providers:
   google_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
   github_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
   telegram_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
-  netflix_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
   microsoft_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
   speedtest_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs"}
   gfw_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs"}
@@ -204,4 +208,3 @@ rule-providers:
   cn_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
   google_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
   telegram_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
-  netflix_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
